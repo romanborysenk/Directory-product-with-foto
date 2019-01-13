@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ведение групп товаров</title>
+</head>
+<body>
+<a th:href="@{/main}" id="main">Return to main menu</a><br/>
+<br/>
+<form method="POST">
+    <label>List of groups:</label>
+    <br/>
+    <label>Name group:</label>
+    <input type="text" style="height: 50px; width: 400px;">
+    <br/>
+    <br/>
+    <br/>
+    <input type="submit" name="insert" value="Add group" style="height: 50px; width: 400px;"/>
+    <input type="submit" name="update" value="Change group" style="height: 50px; width: 400px;"/>
+    <input type="submit" name="delete" value="Delete group" style="height: 50px; width: 400px;"/>
+</form>
+</body>
+</html>
+
