@@ -7,11 +7,16 @@
 <body>
 <a th:href="@{/main}" id="main">Return to main menu</a><br/>
 <br/>
-<form method="POST">
+<form method="POST" th:object="${list}">
     <label>List of groups:</label>
+   <select  name="groups" style="height: 50px; width: 400px;">
+        <div th:each="list :${list}">
+        <option th:value="${list.id}" th:text="${list.name}"></option>
+            </div>
+    </select>
     <br/>
     <label>Name group:</label>
-    <input type="text" style="height: 50px; width: 400px;">
+    <input th:value="${text}" type="text" name="nameGroup" style="height: 50px; width: 400px;">
     <br/>
     <br/>
     <br/>
@@ -19,6 +24,12 @@
     <input type="submit" name="update" value="Change group" style="height: 50px; width: 400px;"/>
     <input type="submit" name="delete" value="Delete group" style="height: 50px; width: 400px;"/>
 </form>
+
+
+
+
+
+
 </body>
 </html>
 
