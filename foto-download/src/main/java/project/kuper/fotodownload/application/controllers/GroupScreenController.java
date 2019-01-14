@@ -4,8 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.kuper.fotodownload.application.model.Group;
-
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,11 +15,11 @@ public class GroupScreenController {
     @GetMapping
     public String getGroupScreen(Model model) {
         list = new LinkedList<>();
-        list.add(new Group(1,"1"));
-        list.add(new Group(2,"2"));
-        list.add(new Group(3,"3"));
-        list.add(new Group(4,"4"));
-        list.add(new Group(5,"5"));
+        list.add(new Group(1,"a"));
+        list.add(new Group(2,"b"));
+        list.add(new Group(3,"c"));
+        list.add(new Group(4,"d"));
+        list.add(new Group(5,"e"));
         model.addAttribute("list",list);
         return "group";
     }
@@ -32,6 +30,7 @@ public class GroupScreenController {
         id++;
         list.add(new Group(id,nameGroup));
         model.addAttribute("list",list);
+        model.addAttribute("name",id);
         return "group";
     }
 }

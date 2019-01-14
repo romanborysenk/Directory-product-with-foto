@@ -4,19 +4,26 @@
 <head>
     <title>Ведение групп товаров</title>
 </head>
+
+<script type="text/javascript">
+    function setValue(val) {
+        document.getElementById("nameGroup").value = val;
+    }
+</script>
+
 <body>
 <a th:href="@{/main}" id="main">Return to main menu</a><br/>
 <br/>
-<form method="POST" th:object="${list}">
+<form method="POST"  th:object="${list}" para>
     <label>List of groups:</label>
-   <select  name="groups" style="height: 50px; width: 400px;">
+    <select  id="groups" onchange="setValue(this.options[this.selectedIndex].text)" name="groups" style="height: 50px; width: 400px;">
         <div th:each="list :${list}">
-        <option th:value="${list.id}" th:text="${list.name}"></option>
-            </div>
+            <option th:value="${list.id}" th:text="${list.name}"></option>
+        </div>
     </select>
     <br/>
     <label>Name group:</label>
-    <input th:value="${text}" type="text" name="nameGroup" style="height: 50px; width: 400px;">
+    <input id="nameGroup" th:value="${text}" type="text" name="nameGroup" style="height: 50px; width: 400px;">
     <br/>
     <br/>
     <br/>
@@ -24,12 +31,6 @@
     <input type="submit" name="update" value="Change group" style="height: 50px; width: 400px;"/>
     <input type="submit" name="delete" value="Delete group" style="height: 50px; width: 400px;"/>
 </form>
-
-
-
-
-
-
 </body>
 </html>
 
